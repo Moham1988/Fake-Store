@@ -1,0 +1,339 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header Styles */
+  .header-home {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #dc0a2d;
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-wrapper h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .logo-wrapper img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .search-wrap {
+    position: relative;
+  }
+  
+  .search-icon,
+  .search-close-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding: 15px;
+  }
+  
+  .search-icon {
+    left: -15px;
+  }
+  
+  .search-close-icon {
+    right: 10px;
+  }
+  
+  .search-input {
+    margin-left: -5px;
+    border: none;
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 20px;
+    outline: none;
+    width: calc(100% - 40px);
+  }
+  
+  #not-found-message {
+    display: none;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 200px;
+    color: #dc0a2d;
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .sort-wrap {
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2) inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sort-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .sort-wrapper {
+    position: relative;
+  }
+  
+  .filter-wrapper {
+    position: absolute;
+    background-color: #ffffff;
+    color: #212121;
+    border-radius: 12px;
+    border: 2px solid #dc0a2d;
+    padding: 10px;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 150px;
+    box-shadow: 0px 3px 12px 3px rgba(0, 0, 0, 0.2);
+    display: none;
+  }
+  
+  .filter-wrapper-open {
+    display: block;
+  }
+  
+  .filter-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .filter-wrap label {
+    cursor: pointer;
+  }
+  
+  .filter-wrap input {
+    cursor: pointer;
+  }
+  
+  /* product List Styles */
+  .product-list {
+    padding: 20px 0;
+  }
+  
+  .list-wrapper {
+    padding-top: 120px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .list-item {
+    background-color: #ffffff;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #212121;
+    transition: transform 0.1s ease-in;
+  }
+  
+  .list-item:hover {
+    transform: translateY(-15px); /* Move the list item up slightly on hover */
+  }
+  
+  .list-item img {
+    width: 100px; /* Adjust based on your preference */
+    height: 100px; /* Adjust based on your preference */
+    margin-bottom: 10px;
+  }
+  
+  .list-item .name-wrap {
+    font-size: 18px;
+  }
+  
+  /* Detail Page Styles */
+  .detail-main {
+    background-color: #efefef;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px; /* Add some margin for separation */
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .header-wrap {
+    display: flex;
+    align-items: center;
+  }
+  
+  .back-btn {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  
+  .name-wrap h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .product-id-wrap p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .featured-img {
+    margin-bottom: 20px;
+    position: relative;
+    animation: bounce 0.5s ease infinite alternate; /* Apply bounce animation to the featured image */
+  }
+  
+  /* Keyframes for bounce animation */
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Exclude the arrows from the bounce animation */
+  .arrow {
+    animation: none; /* Disable animation for arrows */
+  }
+  
+  .detail-img-wrapper img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .left-arrow {
+    left: -30px;
+  }
+  
+  .right-arrow {
+    right: -30px;
+  }
+  
+  .detail-card-detail-wrapper {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+    margin-top: 20px; /* Add some margin for separation */
+  }
+  
+  .power-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .type {
+    background-color: #74cb48;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+  }
+  
+  .about-text {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .product-detail {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .product-detail img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .product-detail p {
+    margin: 0;
+  }
+  
+  .move {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .product-description {
+    margin-top: 20px;
+  }
+  
+  .stats-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .stats-wrap {
+    width: calc(50% - 10px);
+    margin-bottom: 10px;
+  }
+  
+  .stats-wrap p {
+    margin: 0;
+  }
+  
+  .stats-wrap .progress-bar {
+    width: 92%;
+    height: 10px;
+    border-radius: 15px;
+  }
+  
+  .stats-wrap .progress-bar::-webkit-progress-bar {
+    background-color: #613c3c;
+    border-radius: 15px;
+  }
+  
+  .stats-wrap .progress-bar::-webkit-progress-value {
+    background-color: #dc0a2d;
+    border-radius: 15px;
+  }
+  
