@@ -3,7 +3,14 @@
 let renderData = document.querySelector(".renderData");
 let renderCartData = document.querySelector(".renderCartData");
 let dynamic_count = document.querySelector(".dynamic-count");
+let tContainer = document.querySelector(".tContainer");
+let line = document.querySelector(".line");
+let total_price = document.getElementById("total_price");
+let emptyCart = document.querySelector(".emptyCart");
+let cItems = document.querySelector(".cItems");
+let emptyC= false;
 let arrr = [];
+let calculateTotal = [];
 
 //Get Data from API
 
@@ -32,8 +39,8 @@ async function getData(){
      btnEle.appendChild(btnText);
      productMainDiv.appendChild(createImgEle);
      productMainDiv.appendChild(createTitle);
-     productMainDiv.appendChild(btnEle);
      productMainDiv.appendChild(createPriceEle);
+     productMainDiv.appendChild(btnEle);
      renderData.appendChild(productMainDiv);
    
 
@@ -41,10 +48,25 @@ async function getData(){
         arrr.push({ii : img , pp : price});
         
         alert("Product Added to Cart")
+        dynamic_count.innerHTML++;
+        emptyC = true;
+        if (emptyC){
+            cItems.style.display="flex";
+            emptyCart.style.display="none";
+
+        }
         let cartMDiv=document.createElement("div");
         let cartImgEle = document.createElement("img");
         let cartTrashBtn = document.createElement("i");
         cartTrashBtn.setAttribute("class", "fa-solid fa-trash")
+        tContainer.style.display= "flex";
+        line.style.display= "block";
+
+        function deleteItm (){
+            cartMDiv.remove();
+            dynamic_count.innerHTML--;
+        }
+        cartTrashBtn.addEventListener("click", deleteItm)
         cartImgEle.setAttribute("src" , img)
         cartImgEle.setAttribute("class" , "cartImgElement")
         cartMDiv.setAttribute("class", "cart-styling")
@@ -53,12 +75,18 @@ async function getData(){
         let cartPriceText = document.createTextNode(`$${price}`);
         cartPriceEle.setAttribute("class", "cart-pprice")
         cartPriceEle.appendChild(cartPriceText);
-        dynamic_count.innerHTML = arrr.length;
+
         
         cartMDiv.appendChild(cartImgEle);
         cartMDiv.appendChild(cartPriceEle);
         cartMDiv.appendChild(cartTrashBtn);
         renderCartData.appendChild(cartMDiv);
+        calculateTotal.push(price);
+        let myTotal= calculateTotal.reduce((accum , curVal )=>{
+
+            return accum + curVal
+         })
+         total_price.innerHTML=`Total Price : $${myTotal}`
 
 
      }
